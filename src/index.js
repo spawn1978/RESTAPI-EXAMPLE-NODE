@@ -7,10 +7,10 @@ const morgan = require ('morgan');
 app.set('port', process.env.PORT || 3000);
 app.set('json spaces', 2);
 
-// middleware
-//combined or dev, combind more information
+// middlewares
+//combined or dev, combined show  more information
 app.use(morgan('dev'));
-app.use(express.urlencoded({extenden: false}));
+app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 
 // routes

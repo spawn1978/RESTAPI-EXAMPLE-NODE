@@ -1,9 +1,10 @@
 const { Router} = require ('express');
-const router = require('.');
+const router = Router();
 const _ = require('underscore');
 
 const movies = require('../sample.json');
-console.log(movies);
+
+//console.log(movies);
 
 router.get('/', (req, res) => {
     res.json(movies); 
@@ -14,7 +15,7 @@ router.post('/', (req, res) => {
     if (title && director && year && rating){
         const id = movies.length + 1;
         const newMovie = {...req.body, id};
-        console.log(newMovie);
+        //console.log(newMovie);
         movies.push(newMovie);
         res.json(movies);
     } else {
@@ -47,9 +48,11 @@ router.delete('/:id', (req, res) => {
         if (movie.id == id) {
             movies.splice(i, 1);
         }
-    })
+    });
     res.send(movies);
-}); 
+});  
+
+module.exports = router;
 
 
 
